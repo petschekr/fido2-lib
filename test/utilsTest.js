@@ -34,7 +34,7 @@ describe("utils", function() {
         it("throws on undefined origin", function() {
             assert.throws(() => {
                 checkOrigin(undefined);
-            }, Error, "Invalid URL: undefined");
+            }, Error);
         });
 
         it("throws invalid url", function() {
@@ -51,7 +51,7 @@ describe("utils", function() {
         it("throws on non-https", function() {
             assert.throws(() => {
                 checkOrigin("http://webauthn.bin.coffee:8080");
-            }, Error, "origin should be https");
+            }, Error, "protocol should http://localhost, https or android");
         });
 
         it.skip("allows international domain", function() {

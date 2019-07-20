@@ -20,10 +20,12 @@ describe("attestation validation", function() {
             requiredExpectations: new Set([
                 "origin",
                 "challenge",
-                "flags"
+                "flags",
+                "rpId"
             ]),
             expectations: new Map([
                 ["origin", "https://localhost:8443"],
+                ["rpId", "localhost"],
                 ["challenge", "33EHav-jZ1v9qwH783aU-j0ARx6r5o-YHh-wd7C6jPbd7Wh6ytbIZosIIACehwf9-s6hXhySHO-HHUjEwZS29w"],
                 ["flags", ["UP", "AT"]]
             ]),
@@ -68,12 +70,12 @@ describe("attestation validation", function() {
 
         it("throws if too many expectations", function() {
             attResp.expectations.set("foo", "bar");
-            return assert.isRejected(attResp.validateExpectations(), Error, "wrong number of expectations: should have 3 but got 4");
+            return assert.isRejected(attResp.validateExpectations(), Error, "wrong number of expectations: should have 4 but got 5");
         });
 
         it("throws if too many expectations, but expectations are valid", function() {
             attResp.expectations.set("prevCounter", 42);
-            return assert.isRejected(attResp.validateExpectations(), Error, "wrong number of expectations: should have 3 but got 4");
+            return assert.isRejected(attResp.validateExpectations(), Error, "wrong number of expectations: should have 4 but got 5");
         });
 
         it("throws if missing challenge", function() {
@@ -482,7 +484,7 @@ describe("attestation validation", function() {
         });
 
         it("throws when it doesn't match", function() {
-            attResp.clientData.set("origin", "https://google.com");
+            attResp.expectations.set("rpId", "google.com");
             return assert.isRejected(attResp.validateRpIdHash(), Error, "authnrData rpIdHash mismatch");
         });
 

@@ -465,6 +465,7 @@ describe("Fido2Lib", function() {
             var expectations = {
                 challenge: "33EHav-jZ1v9qwH783aU-j0ARx6r5o-YHh-wd7C6jPbd7Wh6ytbIZosIIACehwf9-s6hXhySHO-HHUjEwZS29w",
                 origin: "https://localhost:8443",
+                rpId: "localhost",
                 factor: "either"
             };
 
@@ -545,6 +546,7 @@ describe("Fido2Lib", function() {
             var expectations = {
                 challenge: "eaTyUNnyPDDdK8SNEgTEUvz1Q8dylkjjTimYd5X7QAo-F8_Z1lsJi3BilUpFZHkICNDWY8r9ivnTgW7-XZC3qQ",
                 origin: "https://localhost:8443",
+                rpId: "localhost",
                 factor: "either",
                 publicKey: h.lib.assnPublicKey,
                 prevCounter: 362,
@@ -561,6 +563,7 @@ describe("Fido2Lib", function() {
             var expectations = {
                 challenge: "eaTyUNnyPDDdK8SNEgTEUvz1Q8dylkjjTimYd5X7QAo-F8_Z1lsJi3BilUpFZHkICNDWY8r9ivnTgW7-XZC3qQ",
                 origin: "https://localhost:8443",
+                rpId: "localhost",
                 factor: "either",
                 publicKey: h.lib.assnPublicKey,
                 prevCounter: 362,
