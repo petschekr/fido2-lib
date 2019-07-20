@@ -1,4 +1,8 @@
-[![Build Status](https://travis-ci.org/apowers313/fido2-lib.svg?branch=master)](https://travis-ci.org/apowers313/fido2-lib) [![Coverage Status](https://coveralls.io/repos/github/apowers313/fido2-lib/badge.svg?branch=master)](https://coveralls.io/github/apowers313/fido2-lib?branch=master) [![Known Vulnerabilities](https://snyk.io/test/github/apowers313/fido2-lib/badge.svg?targetFile=package.json)](https://snyk.io/test/github/apowers313/fido2-lib?targetFile=package.json)
+# fido2-lib
+
+[![Build Status](https://travis-ci.org/jedrivisser/fido2-lib.svg?branch=master)](https://travis-ci.org/jedrivisser/fido2-lib)
+[![codecov](https://codecov.io/gh/jedrivisser/fido2-lib/branch/master/graph/badge.svg)](https://codecov.io/gh/jedrivisser/fido2-lib)
+[![Known Vulnerabilities](https://snyk.io/test/github/jedrivisser/fido2-lib/badge.svg?targetFile=package.json)](https://snyk.io/test/github/jedrivisser/fido2-lib?targetFile=package.json)
 
 ## Install
 
@@ -7,11 +11,13 @@ npm install fido2-lib
 ```
 
 ## Overview
+
 A library for performing FIDO 2.0 / WebAuthn server functionality
 
 This library contains all the functionality necessary for implementing a full FIDO2 / WebAuthn server. It intentionally does not implement any kind of networking protocol (e.g. - REST endpoints) so that it can remain independent of any messaging protocols.
 
 There are four primary functions:
+
 1. [attestationOptions](https://apowers313.github.io/fido2-lib/Fido2Lib.html#attestationOptions) - creates the challenge that will be sent to the client (e.g. - browser) for the credential create call. Note that the library does not keep track of sessions or context, so the caller is expected to associate the resulting challenge with a session so that it can be appropriately matched with a response.
 2. [attestationResult](https://apowers313.github.io/fido2-lib/Fido2Lib.html#attestationResult) - parses and validates the response from the client
 3. [assertionOptions](https://apowers313.github.io/fido2-lib/Fido2Lib.html#assertionOptions) - creates the challenge that will be sent to the client for credential assertion.
@@ -38,6 +44,7 @@ For working examples see [fido2-server-demo](https://github.com/apowers313/fido2
 ## Example
 
 **Instantiate Library (Simple):**
+
 ``` js
 const { Fido2Lib } = require("fido2-lib");
 
@@ -46,6 +53,7 @@ var f2l = new Fido2Lib();
 ```
 
 **Instantiate Library (Complex):**
+
 ``` js
 // could also use one or more of the options below,
 // which just makes the options calls easier later on:
@@ -64,6 +72,7 @@ var f2l = new Fido2Lib({
 ```
 
 **Registration:**
+
 ``` js
 var registrationOptions = await f2l.attestationOptions();
 
@@ -84,6 +93,7 @@ var regResult = await f2l.attestationResult(clientAttestationResponse, attestati
 ```
 
 **Authentication:**
+
 ``` js
 var authnOptions = await f2l.assertionOptions();
 
@@ -109,6 +119,7 @@ var authnResult = await f2l.attestationResult(clientAssertionResponse, assertion
 For a real-life example, refer to [component-fido2](https://github.com/apowers313/component-fido2).
 
 ## Sponsor
+
 Note that while I used to be Technical Director for FIDO Alliance (and I am currently the Technical Advisor for FIDO Alliance), THIS PROJECT IS NOT ENDORSED OR SPONSORED BY FIDO ALLIANCE.
 
 Work for this project is supported by my consulting company: [WebAuthn Consulting](https://webauthn.consulting/).
