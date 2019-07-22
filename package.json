@@ -1,6 +1,6 @@
 {
-  "name": "fido2-lib",
-  "version": "2.3.0",
+  "name": "@jedrivisser/fido2-lib",
+  "version": "0.0.1",
   "description": "A library for performing FIDO 2.0 / WebAuthn functionality",
   "main": "index.js",
   "types": "./types/index.d.ts",
@@ -20,15 +20,18 @@
     "u2f",
     "server"
   ],
-  "author": "Adam Powers",
+  "author": "Jedri Visser <github@jedrivisser.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/apowers313/fido2-lib"
+    "url": "https://github.com/jedrivisser/fido2-lib"
   },
   "bugs": {
-    "url": "https://github.com/apowers313/fido2-lib/issues",
-    "email": "apowers@ato.ms"
+    "url": "https://github.com/jedrivisser/fido2-lib/issues",
+    "email": "github@jedrivisser.com"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "chai": "^4.1.2",
